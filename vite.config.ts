@@ -4,10 +4,9 @@ import path from 'path';
 import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
-  plugins: [react()],
-  base: '/mathgame/'
   const env = loadEnv(mode, '.', '');
   return {
+    base: '/mathgame/',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
